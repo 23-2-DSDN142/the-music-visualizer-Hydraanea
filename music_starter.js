@@ -3,13 +3,14 @@
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(20)
   textFont('Helvetica'); // please use CSS safe fonts
-  rectMode(CENTER)
-  textSize(24);
+rectMode(CENTER)
+textSize(24);
+
 
    let bar_spacing = height / 10;
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
- 
+
 
    // vocal bar is red
    fill(200, 0, 0);
@@ -36,8 +37,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
    fill(255, 255, 0);
  
-   // display "words"
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+
+    // display "words"
+    textAlign(CENTER);
+    textSize(vocal);
+    text(words, width/2, height/3);
 }
