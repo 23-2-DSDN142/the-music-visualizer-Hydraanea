@@ -1,7 +1,7 @@
 let firstRun = true
 let dinerImg;
 let girl = []
-let boyImg;
+let boy = []
 let jukeboxImg;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -12,6 +12,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     girl.push(loadImage('girl_0.png'));
     girl.push(loadImage('girl_1.png'));
     girl.push(loadImage('girl_2.png'));
+
+    boy.push(loadImage('boy_0.png'));
+    boy.push(loadImage('boy_1.png'));
+    boy.push(loadImage('boy_2.png'));
 
     dinerImg = loadImage('dinerbackground.png');
     // // girlImg = loadImage('girl.png');
@@ -25,10 +29,11 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   background(225, 50)
 
- var VocalFrame = int(map(vocal, 0, 100, 0, 2));
+ var VocalFrame = int(map(vocal, 0, 100, 0, 3));
  console.log(VocalFrame);
  push();
  image(girl[VocalFrame], 0, 0);
+ image(boy[VocalFrame], 0, 0);
  pop();
 
   textFont('Helvetica'); // please use CSS safe fonts
