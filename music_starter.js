@@ -1,55 +1,65 @@
 let firstRun = true
 let dinerImg;
-let girlImg;
+let girl = []
 let boyImg;
 let jukeboxImg;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
- 
   if(firstRun){
     rectMode(CENTER)
+
+    girl.push(loadImage('girl_0.png'));
+    girl.push(loadImage('girl_1.png'));
+    girl.push(loadImage('girl_2.png'));
+
     dinerImg = loadImage('dinerbackground.png');
-    girlImg = loadImage('girl.png');
-    boyImg = loadImage('boy.png');
-    jukeboxImg = loadImage('jukebox.png');
+    // // girlImg = loadImage('girl.png');
+    // boyImg = loadImage('boy.png');
+    // jukeboxImg = loadImage('jukebox.png');
   
     firstRun = false
   }
 
+  image(dinerImg, 0, 0)
+
   background(225, 50)
 
- 
+ var VocalFrame = int(map(vocal, 0, 100, 0, 2));
+ console.log(VocalFrame);
+ push();
+ image(girl[VocalFrame], 0, 0);
+ pop();
 
   textFont('Helvetica'); // please use CSS safe fonts
 
   textSize(24);
 
 
-  var drumHeight = map(drum, 0, 100, 0,  600);
-  var ballSize = 60;
+  // var drumHeight = map(drum, 0, 100, 0,  600);
+  // var ballSize = 60;
 
-  var bassHeight = map(bass, 0, 100, 0,  600);
-  var ballSize2 = 60;
+  // var bassHeight = map(bass, 0, 100, 0,  600);
+  // var ballSize2 = 60;
 
-  var otherHeight = map(other, 0, 100, 100, 600)
-  var ballSize3 = 100;
+  // var otherHeight = map(other, 0, 100, 100, 600)
+  // var ballSize3 = 100;
 
-  fill(1000,500,0);
-  ellipse(300, 500, otherHeight, ballSize3);
+//   fill(1000,500,0);
+//   ellipse(300, 500, otherHeight, ballSize3);
 
-  fill(60,200,90);
-  ellipse(100, drumHeight, ballSize);
+//   fill(60,200,90);
+//   ellipse(100, drumHeight, ballSize);
 
   
-  fill(100,20,100);
- ellipse(500, bassHeight, ballSize2);
+//   fill(100,20,100);
+//  ellipse(500, bassHeight, ballSize2);
 
 
- image(dinerImg, 0, 0)
- image(jukeboxImg, 0, 0)
- image(girlImg, 0, 0)
- image(boyImg, 0, 0)
+
+//  image(jukeboxImg, 0, 0)
+//  image(girlImg, 0, 0)
+//  image(boyImg, 0, 0)
 
    // display "words"
    textAlign(CENTER);
