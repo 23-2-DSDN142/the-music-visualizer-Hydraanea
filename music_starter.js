@@ -1,12 +1,18 @@
 let firstRun = true
 let dinerImg;
+let girlImg;
+let boyImg;
+let jukeboxImg;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
  
   if(firstRun){
     rectMode(CENTER)
-    dinerImg = loadImage('diner.png');
+    dinerImg = loadImage('dinerbackground.png');
+    girlImg = loadImage('girl.png');
+    boyImg = loadImage('boy.png');
+    jukeboxImg = loadImage('jukebox.png');
   
     firstRun = false
   }
@@ -41,6 +47,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
 
  image(dinerImg, 0, 0)
+ image(jukeboxImg, 0, 0)
+ image(girlImg, 0, 0)
+ image(boyImg, 0, 0)
 
    // display "words"
    textAlign(CENTER);
