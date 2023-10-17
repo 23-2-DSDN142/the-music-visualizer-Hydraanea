@@ -9,6 +9,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   if(firstRun){
     rectMode(CENTER)
 
+    // Animation
     girl.push(loadImage('girl_0.png'));
     girl.push(loadImage('girl_1.png'));
     girl.push(loadImage('girl_2.png'));
@@ -17,54 +18,55 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     boy.push(loadImage('boy_1.png'));
     boy.push(loadImage('boy_2.png'));
 
+    // Images 
     dinerImg = loadImage('dinerbackground.png');
-    // // girlImg = loadImage('girl.png');
-    // boyImg = loadImage('boy.png');
-    // jukeboxImg = loadImage('jukebox.png');
+    jukeboxImg = loadImage('jukebox.png');
   
     firstRun = false
   }
 
+// Behinf the Background Variables
+  var drumHeight = map(drum, 0, 100, 0,  600);
+  var ballSize = 60;
+  var bassHeight = map(bass, 0, 100, 0,  600);
+  var ballSize2 = 60;
+
+  var otherHeight = map(other, 0, 100, 100, 600)
+  var ballSize3 = 400;
+
+   
+  fill('#f8c92e');
+  rect(300, 500, otherHeight, ballSize3);
+
+  fill('#bffdfc');
+  ellipse(100, drumHeight, ballSize);
+
+  
+  fill('#c460ab');
+ ellipse(1000, bassHeight, ballSize2);
+
+ background(225, 50)
+
+
+// Background
   image(dinerImg, 0, 0)
 
-  background(225, 50)
+
+// Girl and Boy 
 
  var VocalFrame = int(map(vocal, 0, 100, 0, 3));
  console.log(VocalFrame);
  push();
+ image(jukeboxImg, 0, 0)
  image(girl[VocalFrame], 0, 0);
  image(boy[VocalFrame], 0, 0);
  pop();
 
+
+
+ // Bottom Lyrics
   textFont('Helvetica'); // please use CSS safe fonts
-
   textSize(24);
-
-
-  // var drumHeight = map(drum, 0, 100, 0,  600);
-  // var ballSize = 60;
-
-  // var bassHeight = map(bass, 0, 100, 0,  600);
-  // var ballSize2 = 60;
-
-  // var otherHeight = map(other, 0, 100, 100, 600)
-  // var ballSize3 = 100;
-
-//   fill(1000,500,0);
-//   ellipse(300, 500, otherHeight, ballSize3);
-
-//   fill(60,200,90);
-//   ellipse(100, drumHeight, ballSize);
-
-  
-//   fill(100,20,100);
-//  ellipse(500, bassHeight, ballSize2);
-
-
-
-//  image(jukeboxImg, 0, 0)
-//  image(girlImg, 0, 0)
-//  image(boyImg, 0, 0)
 
    // display "words"
    textAlign(CENTER);
@@ -79,6 +81,22 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+// Orginal Code
 
   //  let bar_spacing = height / 10;
   //  let bar_height = width / 12;
