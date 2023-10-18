@@ -6,8 +6,14 @@ let jukeboxImg;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
+ 
+ 
+
+
+
   if(firstRun){
     rectMode(CENTER)
+    
 
     // Animation
     girl.push(loadImage('girl_0.png'));
@@ -25,7 +31,15 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     firstRun = false
   }
 
-// Behinf the Background Variables
+
+
+
+
+
+
+
+
+// Behind the Background Variables
   var drumHeight = map(drum, 0, 100, 0,  600);
   var ballSize = 60;
   var bassHeight = map(bass, 0, 100, 0,  600);
@@ -34,7 +48,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   var otherHeight = map(other, 0, 100, 100, 600)
   var ballSize3 = 400;
 
-  noStroke()
+  background(255)
+
   fill('#f8c92e');
   rect(300, 500, otherHeight, ballSize3);
 
@@ -46,37 +61,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  ellipse(1000, bassHeight, ballSize2);
 
 
-image(dinerImg, 0, 0)
+
+
+ image(dinerImg, 0, 0)
 
 
 
-let yellowColor;
-let pinkColor;
-let blueColor;
-
-blueColor = color('#f8c92e')
-pinkColor = color('#bffdfc')
-yellowColor = color('#c460ab')
-
-rectMode(CENTER);
-strokeWeight(9);
-stroke(drum, 80, 80);
-
-var drumMap = map(drum, 0, 100, 30, 90);
-let drumLerpNumber = map(drum, 0, 100, 0, 1)
-let drumColor = lerpColor(pinkColor, yellowColor, drumLerpNumber)
-var lengthOfLine = 300;
-var lineStart = 100;
-var lineEnd = lineStart + lengthOfLine;
-
-
-for (var i = 0; i <=drumMap; i++) {
-  var lineStep = i*10;
-  stroke(drumColor)
-  line(lineStart, lineStep, lineEnd, lineStep);
-  
-}
-
+image(jukeboxImg, 0, 0)
 
 
 
@@ -85,12 +76,29 @@ for (var i = 0; i <=drumMap; i++) {
 // Girl and Boy 
 
  var VocalFrame = int(map(vocal, 0, 100, 0, 3));
- console.log(VocalFrame);
  push();
- image(jukeboxImg, 0, 0)
- image(girl[VocalFrame], 0, 0);
  image(boy[VocalFrame], 0, 0);
  pop();
+
+
+ var otherFrame = int(map(other, 0, 100, 0, 3));
+ push();
+ image(girl[otherFrame], 0, 0);
+ pop();
+
+
+
+
+
+ let yellowColor;
+ let pinkColor;
+ let blueColor;
+ 
+ blueColor = color('#f8c92e')
+ yellowColor = color('#bffdfc')
+ pinkColor = color('#c460ab')
+ 
+ 
 
 
 
@@ -99,30 +107,83 @@ for (var i = 0; i <=drumMap; i++) {
   textSize(24);
 
    // display "words"
-   textAlign(CENTER);
    noStroke();
-   textSize(vocal);
-   
+   textAlign(CENTER);
+
    fill('#ffffff');
    rect(width/2,900, 920, 120);
 
    fill(100,20,100);
+   textSize(vocal);
    text(words, width/2, 925);
 
 
 
 
 
+   strokeWeight(3);
+   stroke(drum, 10, 10);
+   
+   var drumMap = map(drum, 50, 0, 90, 0);
+   let drumLerpNumber = map(drum, 0, 50, 10, 1)
+   let drumColor = lerpColor(blueColor, yellowColor, drumLerpNumber)
+   var lengthOfLine = 100; // x length
+   var lineStart = 0; // x location
+   var lineEnd = lineStart + lengthOfLine;
+  
+   
+   
+   for (var i = 0; i <=drumMap; i++) {
+     var lineStep = lineStart - i * 4;
+     stroke(drumColor)
+     // line(lineStart, lineStep, lineEnd, lineStep);
+     line(lineStart, lineStep+1020, lineEnd, lineStep+1120);
+   
+     
+     
+   }
+   
+  
+   strokeWeight(3);
+   stroke(bass, 10, 10);
+   
+   var bassMap = map(bass, 50, 0, 60, 0);
+   let bassLerpNumber = map(bass, 0, 50, 10, 1)
+   let bassColor = lerpColor(pinkColor, yellowColor, bassLerpNumber)
+   var lengthOfLine = 100; // x length
+   var lineStart = 110; // x location
+   var lineEnd = lineStart + lengthOfLine;
+  
+   
+   
+   for (var i = 0; i <=bassMap; i++) {
+     var lineStep = lineStart - i * 4;
+     stroke(bassColor)
+     // line(lineStart, lineStep, lineEnd, lineStep);
+     line(lineStart, lineStep+1020, lineEnd, lineStep+1020);
 
+   }
 
+     
+   strokeWeight(3);
+   stroke(other, 10, 10);
+   
+   var bassMap = map(other, 50, 0, 60, 0);
+   let otherLerpNumber = map(other, 0, 50, 10, 1)
+   let otherColor = lerpColor(yellowColor, pinkColor, otherLerpNumber)
+   var lengthOfLine = 100; // x length
+   var lineStart = 1110; // x location
+   var lineEnd = lineStart + lengthOfLine;
+  
+   
+   
+   for (var i = 0; i <=bassMap; i++) {
+     var lineStep = lineStart - i * 4;
+     stroke(otherColor)
+     // line(lineStart, lineStep, lineEnd, lineStep);
+     line(lineStart, lineStep+20, lineEnd, lineStep+20);
 
-
-
-
-
-
-
-
+   }
 
 
 
