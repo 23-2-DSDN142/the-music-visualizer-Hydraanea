@@ -168,8 +168,8 @@ image(jukeboxImg, 0, 0)
    strokeWeight(3);
    stroke(other, 10, 10);
    
-   var bassMap = map(other, 50, 0, 60, 0);
-   let otherLerpNumber = map(other, 0, 50, 10, 1)
+   var otherMap = map(other, 50, 0, 60, 0);
+   var otherLerpNumber = map(other, 0, 50, 10, 1)
    let otherColor = lerpColor(yellowColor, pinkColor, otherLerpNumber)
    var lengthOfLine = 100; // x length
    var lineStart = 1110; // x location
@@ -177,7 +177,7 @@ image(jukeboxImg, 0, 0)
   
    
    
-   for (var i = 0; i <=bassMap; i++) {
+   for (var i = 0; i <=otherMap; i++) {
      var lineStep = lineStart - i * 4;
      stroke(otherColor)
      // line(lineStart, lineStep, lineEnd, lineStep);
@@ -185,6 +185,27 @@ image(jukeboxImg, 0, 0)
 
    }
 
+   strokeWeight(3);
+   stroke(vocal, 10, 10);
+   
+   var vocalMap = map(vocal, 50, 0, 60, 0);
+   var vocalLerpNumber = map(vocal, 0, 50, 10, 1)
+   let vocalColor = lerpColor(yellowColor, blueColor, vocalLerpNumber)
+   var lengthOfLine = 100; // x length
+   var lineStart = 1220; // x location
+   var lineEnd = lineStart + lengthOfLine;
+  
+   
+   
+   for (var i = 0; i <=vocalMap; i++) {
+     var lineStep = lineStart - i * 4;
+     stroke(vocalColor)
+     // line(lineStart, lineStep, lineEnd, lineStep);
+     line(lineStart, lineStep-100, lineEnd, lineStep-200);
+
+   }
+
+   
 
 
 // Orginal Code
