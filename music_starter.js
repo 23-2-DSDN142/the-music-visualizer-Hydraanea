@@ -34,7 +34,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   var otherHeight = map(other, 0, 100, 100, 600)
   var ballSize3 = 400;
 
-   
+  noStroke()
   fill('#f8c92e');
   rect(300, 500, otherHeight, ballSize3);
 
@@ -45,11 +45,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   fill('#c460ab');
  ellipse(1000, bassHeight, ballSize2);
 
- background(225, 50)
+
+image(dinerImg, 0, 0)
 
 
-// Background
-  image(dinerImg, 0, 0)
+
+let yellowColor;
+let pinkColor;
+let blueColor;
+
+blueColor = color('#f8c92e')
+pinkColor = color('#bffdfc')
+yellowColor = color('#c460ab')
+
+rectMode(CENTER);
+strokeWeight(9);
+stroke(drum, 80, 80);
+
+var drumMap = map(drum, 0, 100, 30, 90);
+let drumLerpNumber = map(drum, 0, 100, 0, 1)
+let drumColor = lerpColor(pinkColor, yellowColor, drumLerpNumber)
+var lengthOfLine = 300;
+var lineStart = 100;
+var lineEnd = lineStart + lengthOfLine;
+
+
+for (var i = 0; i <=drumMap; i++) {
+  var lineStep = i*10;
+  stroke(drumColor)
+  line(lineStart, lineStep, lineEnd, lineStep);
+  
+}
+
+
+
+
 
 
 // Girl and Boy 
@@ -70,6 +100,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
    // display "words"
    textAlign(CENTER);
+   noStroke();
    textSize(vocal);
    
    fill('#ffffff');
@@ -94,7 +125,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
 
 
-   
 
 // Orginal Code
 
