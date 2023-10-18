@@ -8,15 +8,19 @@ let jukeboxImg;
 let yellowColor;
 let pinkColor;
 let blueColor;
+let whiteColor;
+let blackColor;
 
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
  
  
-blueColor = color('#f8c92e')
-yellowColor = color('#bffdfc')
+yellowColor = color('#f8c92e')
+blueColor = color('#bffdfc')
 pinkColor = color('#c460ab')
+whiteColor = color('#fffff')
+blackColor = color('#211f21')
 
 
   if(firstRun){
@@ -41,9 +45,11 @@ pinkColor = color('#c460ab')
 
 
 
-  var drumHeight = map(drum, 0, 100, 0,  600);
-  var ballSize = 60;
-  var bassHeight = map(bass, 0, 100, 0,  600);
+  var drumHeight = map(drum, 700, 0, 100,  950);
+  var bassHeight = map(bass, 900, 0, 0,  950);
+  var otherHeight = map(other, 800, 0, 0, 980);
+  var ballSize = 30;
+
   var ballSize2 = 60;
   
   // var otherHeight = map(other, 0, 100, 100, 600)
@@ -74,15 +80,7 @@ image(jukeboxImg, 0, 0)
 // Behind the Background Variables
 
 
-
-
-
-
-fill('#bffdfc');
-ellipse(100, drumHeight, ballSize);
-
-
-fill('#c460ab');
+fill(pinkColor);
 ellipse(1000, bassHeight, ballSize2);
 
 
@@ -113,11 +111,36 @@ ellipse(1000, bassHeight, ballSize2);
    textAlign(CENTER);
 
    fill('#ffffff');
-   rect(width/2,900, 920, 120);
+   rect(width/2,900, 2000, 120);
 
    fill(100,20,100);
    textSize(vocal);
    text(words, width/2, 925);
+
+
+
+
+
+
+// white dots
+noStroke()
+fill(blackColor);
+ellipse(300, drumHeight, ballSize);
+ellipse(400, bassHeight, ballSize);
+ellipse(500, otherHeight, ballSize);
+
+
+ellipse(800, otherHeight, ballSize);
+ellipse(900, bassHeight, ballSize);
+ellipse(1000, drumHeight, ballSize);
+
+
+
+
+
+
+
+
 
 
 
