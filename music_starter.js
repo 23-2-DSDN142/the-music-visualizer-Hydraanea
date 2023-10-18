@@ -2,12 +2,13 @@ let firstRun = true
 let dinerImg;
 let girl = []
 let boy = []
-let jukeboxImg;
+let jukebox = []
 
 
 let yellowColor;
 let pinkColor;
 let blueColor;
+let purpleColor;
 let whiteColor;
 let blackColor;
 
@@ -21,6 +22,7 @@ blueColor = color('#bffdfc')
 pinkColor = color('#c460ab')
 whiteColor = color('#fffff')
 blackColor = color('#211f21')
+purpleColor = color(100,20,100);
 
 
   if(firstRun){
@@ -36,12 +38,16 @@ blackColor = color('#211f21')
     boy.push(loadImage('boy_1.png'));
     boy.push(loadImage('boy_2.png'));
 
+    jukebox.push(loadImage('jukebox_0.png'))
+    jukebox.push(loadImage('jukebox_1.png'))
+    jukebox.push(loadImage('jukebox_2.png'))
+
     // Images 
     dinerImg = loadImage('dinerbackground.png');
-    jukeboxImg = loadImage('jukebox.png');
   
     firstRun = false
   }
+
 
 
 
@@ -50,38 +56,52 @@ blackColor = color('#211f21')
   var otherHeight = map(other, 800, 0, 0, 980);
   var ballSize = 30;
 
-  var ballSize2 = 60;
   
   // var otherHeight = map(other, 0, 100, 100, 600)
   // var rectangleSize = 100;
 
 
+  // WINDOWS
+
+
   background(255)
 
+  // big
   var rectLerpNumber = map(bass, 0, 50, 10, 1)
   let rectColor = lerpColor(yellowColor, blueColor, rectLerpNumber)
   fill(rectColor)
   rect(100, 500, 1200, 1000);
 
+  // small
   var rect2LerpNumber = map(drum, 100, 50, 10, 1)
-  let rect2Color = lerpColor(yellowColor, blueColor, rect2LerpNumber)
+  let rect2Color = lerpColor(pinkColor, blueColor, rect2LerpNumber)
   fill(rect2Color)
-  rect(900, 100, 160, 300);
-
-
- image(dinerImg, 0, 0)
+  rect(1100, 100, 800, 900);
 
 
 
-image(jukeboxImg, 0, 0)
+
+
+
+image(dinerImg, 0, 0)
+
+
+
+var bassFrame = int(map(bass, 0, 100, 0, 3));
+push();
+image(jukebox[bassFrame], 0, 0);
+pop();
+
+
+
 
 
 
 // Behind the Background Variables
 
 
-fill(pinkColor);
-ellipse(1000, bassHeight, ballSize2);
+// fill(pinkColor);
+// ellipse(1000, bassHeight, ballSize2);
 
 
 // Girl and Boy 
@@ -98,22 +118,21 @@ ellipse(1000, bassHeight, ballSize2);
  pop();
 
  
- 
 
 
 
  // Bottom Lyrics
-  textFont('Helvetica'); // please use CSS safe fonts
-  textSize(24);
+  textFont('Georgia'); // please use CSS safe fonts
+  textSize(20);
 
    // display "words"
    noStroke();
    textAlign(CENTER);
 
-   fill('#ffffff');
-   rect(width/2,900, 2000, 120);
+   fill(whiteColor);
+   rect(width/2,900, 2000, 150);
 
-   fill(100,20,100);
+   fill(purpleColor);
    textSize(vocal);
    text(words, width/2, 925);
 
@@ -124,7 +143,7 @@ ellipse(1000, bassHeight, ballSize2);
 
 // white dots
 noStroke()
-fill(blackColor);
+fill(purpleColor);
 ellipse(300, drumHeight, ballSize);
 ellipse(400, bassHeight, ballSize);
 ellipse(500, otherHeight, ballSize);
@@ -195,7 +214,7 @@ ellipse(1000, drumHeight, ballSize);
    
    var otherMap = map(other, 50, 0, 60, 0);
    var otherLerpNumber = map(other, 0, 50, 10, 1)
-   let otherColor = lerpColor(yellowColor, pinkColor, otherLerpNumber)
+   let otherColor = lerpColor(pinkColor, blueColor, otherLerpNumber)
    var lengthOfLine = 100; // x length
    var lineStart = 1110; // x location
    var lineEnd = lineStart + lengthOfLine;
