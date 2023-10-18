@@ -4,11 +4,19 @@ let girl = []
 let boy = []
 let jukeboxImg;
 
+
+let yellowColor;
+let pinkColor;
+let blueColor;
+
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
  
  
-
+blueColor = color('#f8c92e')
+yellowColor = color('#bffdfc')
+pinkColor = color('#c460ab')
 
 
   if(firstRun){
@@ -33,34 +41,26 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
 
 
-
-
-
-
-
-
-// Behind the Background Variables
   var drumHeight = map(drum, 0, 100, 0,  600);
   var ballSize = 60;
   var bassHeight = map(bass, 0, 100, 0,  600);
   var ballSize2 = 60;
+  
+  // var otherHeight = map(other, 0, 100, 100, 600)
+  // var rectangleSize = 100;
 
-  var otherHeight = map(other, 0, 100, 100, 600)
-  var ballSize3 = 400;
 
   background(255)
 
-  fill('#f8c92e');
-  rect(300, 500, otherHeight, ballSize3);
+  var rectLerpNumber = map(bass, 0, 50, 10, 1)
+  let rectColor = lerpColor(yellowColor, blueColor, rectLerpNumber)
+  fill(rectColor)
+  rect(100, 500, 1200, 1000);
 
-  fill('#bffdfc');
-  ellipse(100, drumHeight, ballSize);
-
-  
-  fill('#c460ab');
- ellipse(1000, bassHeight, ballSize2);
-
-
+  var rect2LerpNumber = map(drum, 100, 50, 10, 1)
+  let rect2Color = lerpColor(yellowColor, blueColor, rect2LerpNumber)
+  fill(rect2Color)
+  rect(900, 100, 160, 300);
 
 
  image(dinerImg, 0, 0)
@@ -71,6 +71,19 @@ image(jukeboxImg, 0, 0)
 
 
 
+// Behind the Background Variables
+
+
+
+
+
+
+fill('#bffdfc');
+ellipse(100, drumHeight, ballSize);
+
+
+fill('#c460ab');
+ellipse(1000, bassHeight, ballSize2);
 
 
 // Girl and Boy 
@@ -86,17 +99,6 @@ image(jukeboxImg, 0, 0)
  image(girl[otherFrame], 0, 0);
  pop();
 
-
-
-
-
- let yellowColor;
- let pinkColor;
- let blueColor;
- 
- blueColor = color('#f8c92e')
- yellowColor = color('#bffdfc')
- pinkColor = color('#c460ab')
  
  
 
