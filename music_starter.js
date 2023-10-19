@@ -112,9 +112,9 @@ pop();
  pop();
 
 
- var otherFrame = int(map(other, 0, 100, 0, 3));
+ var bassFrame = int(map(bass, 0, 100, 0, 3));
  push();
- image(girl[otherFrame], 0, 0);
+ image(girl[bassFrame], 0, 0);
  pop();
 
  
